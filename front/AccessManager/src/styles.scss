@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+@use 'styles/flex.scss';
+@use 'styles/spacing.scss';
+@use 'styles/display.scss';
+@use 'styles/sizing.scss';
+
+html {
+  color-scheme: light ;
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  background: var(--mat-sys-surface);
+}
+
+
+

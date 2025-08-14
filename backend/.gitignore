@@ -1,0 +1,29 @@
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.symbols.nupkg
+
+# EF Core migrations snapshot
+**/*ModelSnapshot.cs
+
+# ASP.NET generated files
+wwwroot/
+node_modules/
+dist/
+.bundle/
+
+# Publish output
+publish/
+out/
