@@ -1,5 +1,4 @@
 using AccessManager.Domain.Users;
-using BCrypt.Net;
 
 namespace AccessManager.Application.Users.Commands;
 

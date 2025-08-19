@@ -34,6 +34,13 @@ public class UserRepository : IUserRepository
 
         return entity;
     }
+    
+    public async Task<User?> GetByEmailAsync(string email)
+    {
+        var entity = await _db.Users
+            .FirstOrDefaultAsync(u => u.Email == email);
+        return entity;
+    }
 
     public async Task DeleteAsync(User user)
     {

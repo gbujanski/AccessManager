@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+
 namespace AccessManager.Application.Users.Dtos;
 
 public class UserDto
