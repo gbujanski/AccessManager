@@ -5,11 +5,11 @@ public static class DbExtension
 {
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration config)
     {
-        var connectionString = config.GetConnectionString("DefaultConnection");
-
+        var connectionString = config.GetConnectionString("Default");
+        
         if (string.IsNullOrEmpty(connectionString))
         {
-            throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+            throw new InvalidOperationException("Connection string 'Default' is not configured.");
         }
 
         services.AddDbContext<AppDbContext>(options =>
