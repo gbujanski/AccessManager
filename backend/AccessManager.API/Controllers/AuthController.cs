@@ -1,4 +1,5 @@
 using AccessManager.Application.Auth.Commands;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccessManager.API.Controllers;
@@ -98,5 +99,12 @@ public class AuthController : ControllerBase
         });
 
         return NoContent();
+    }
+
+    [Authorize]
+    [HttpPost("isLoggedIn")]
+    public IActionResult IsLoggedIn()
+    {
+        return Ok();
     }
 }

@@ -61,10 +61,8 @@ public class AuthService : IAuthService
     {
         var decodedToken = WebUtility.UrlDecode(token);
         var tokenHash = _tokenService.HashToken(decodedToken);
-        Console.WriteLine($"Decoded Token: {decodedToken}");
-        Console.WriteLine($"Token Hash: {tokenHash}");
-
         var refreshToken = await _refreshTokenRepository.GetByTokenAsync(tokenHash);
+        
         if (refreshToken == null || !refreshToken.IsActive)
         {
             throw new InvalidOperationException("Refresh token not found or expired.");

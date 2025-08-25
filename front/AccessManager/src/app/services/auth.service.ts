@@ -12,20 +12,40 @@ export class AuthService {
   login(email: string, password: string) {
     const browserInfo = {
       browser: navigator.userAgent,
-      platform: navigator.platform,        // np. "Win32"
-      language: navigator.language,        // np. "pl-PL"
+      platform: navigator.platform,
+      language: navigator.language,
     };
 
-    // const deviceName = `${ browserInfo.browser } on ${ browserInfo.platform } with language ${ browserInfo.language }`;
     const deviceName = `example device`;
-    return this.http.post(`${this.apiUrl}/login`, { email, password, deviceName }, { withCredentials: true });
+
+    return this.http.post(
+      `${this.apiUrl}/login`,
+      { email, password, deviceName },
+      { withCredentials: true }
+    );
   }
 
   logout() {
-    return this.http.post(`${this.apiUrl}/logout`, {});
+    return this.http.post(
+      `${this.apiUrl}/logout`,
+      {},
+      { withCredentials: true }
+    );
   }
 
   refresh() {
-    return this.http.get(`${this.apiUrl}/refresh`);
+    return this.http.post(
+      `${this.apiUrl}/refresh`,
+      {},
+      { withCredentials: true }
+    );
+  }
+
+  isAuthenticated() {
+    return this.http.post(
+      `${this.apiUrl}/isLoggedIn`,
+      {},
+      { withCredentials: true }
+    );
   }
 }

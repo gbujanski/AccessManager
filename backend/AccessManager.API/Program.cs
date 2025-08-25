@@ -13,10 +13,10 @@ builder.Services
 
 var app = builder.Build();
 
+app.UseCors("Frontend");
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("Frontend")
-   .UseDatabaseConnectionCheck(app.Environment);
+app.UseDatabaseConnectionCheck(app.Environment);
 
 if (app.Environment.IsDevelopment())
 {
