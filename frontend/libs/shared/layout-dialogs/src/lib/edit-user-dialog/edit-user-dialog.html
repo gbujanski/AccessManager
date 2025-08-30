@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h2 mat-dialog-title>Edit user</h2>
+  <button class="me-3" (click)="onCloseClick()" mat-icon-button mat-dialog-close matTooltip="Delete user" matTooltipPosition="above" matTooltipShowDelay="500" aria-label="Delete user">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex-column">
+      <div>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required>
+          @if (editUserForm.controls['email'].invalid) {
+            <mat-error>{{ emailErrorMessage() }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Rola</mat-label>
+          <mat-select formControlName="role">
+            @for (role of roles; track role) {
+              <mat-option [value]="role">{{ role }}</mat-option>
+            }
+          </mat-select>
+          @if (editUserForm.controls['role'].invalid) {
+            <mat-error>{{ roleErrorMessage() }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button mat-raised-button color="primary" type="submit" [disabled]="editUserForm.invalid">Edit User</button>
+      <button mat-raised-button mat-dialog-close class="ms-3" (click)="onCloseClick()">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,34 @@
+<div class="auth-container">
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input 
+          matInput 
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+        >
+        @if (authForm.controls['email'].invalid) {
+          <mat-error>{{ emailErrorMsg() }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input 
+          matInput 
+          formControlName="password" 
+          type="password" 
+          placeholder="Password"
+        >
+        @if (authForm.controls['password'].invalid) {
+          <mat-error>{{ passwordErrorMsg() }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="authForm.invalid">Sign In</button>
+    </div>
+  </form>
+</div>

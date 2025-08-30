@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "importHelpers": true,
+    "isolatedModules": true,
+    "lib": ["es2022", "dom"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2022",
+    "customConditions": ["development"],
+    "paths": {
+      "@frontend/auth": ["libs/auth/src/index.ts"],
+      "@frontend/auth-core": ["libs/auth-core/src/index.ts"],
+      "@frontend/form-configs": ["libs/shared/form-configs/src/index.ts"],
+      "@frontend/layout": ["libs/shared/layout/src/index.ts"],
+      "@frontend/layout-dialogs": ["libs/shared/layout-dialogs/src/index.ts"],
+      "@frontend/models": ["libs/shared/models/src/index.ts"],
+      "@frontend/services": ["libs/shared/services/src/index.ts"],
+      "@frontend/styles": ["libs/shared/styles/src"],
+      "@frontend/users": ["libs/users/src/index.ts"]
+    }
+  }
+}

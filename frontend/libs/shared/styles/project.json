@@ -1,0 +1,15 @@
+{
+  "name": "styles",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/styles/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "command": "echo 'No build needed for pure SCSS library'"
+      }
+    }
+  }
+}

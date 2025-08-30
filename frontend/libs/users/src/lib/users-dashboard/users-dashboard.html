@@ -1,0 +1,39 @@
+<h2>Lista Użytkowników</h2>
+
+<button mat-stroked-button (click)="openAddUserDialog()">Add user</button>
+
+@if (users().length === 0) {
+  <p>Ładowanie użytkowników...</p>
+} @else {
+  <table mat-table [dataSource]="users()" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> Role </th>
+      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="openEditUserDialog(element)" matTooltip="Edit user" matTooltipPosition="above" matTooltipShowDelay="500" aria-label="Edit user">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="removeUser(element.id)" matTooltip="Delete user" matTooltipPosition="above" matTooltipShowDelay="500" aria-label="Delete user">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+}
